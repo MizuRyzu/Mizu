@@ -1,16 +1,56 @@
 ---
+import { Image } from 'astro:assets';
+import Baselayout from '../layouts/BaseLayout.astro';
+import quote from '../images/quote.svg';
+import Navigation from '../components/Navigation.astro';
 
+const pageTitle = 'Portfolio - Michal Dekýš';
+const description = 'Portfolio stránka pre Michala Dekýša, obsahujúca jeho projekty a kontaktné informácie.';
+const ogLocale = 'sk_SK';
+const ogTitle = 'Michal Dekýš - Portfolio';
+const ogImage = '';
+const ogUrl = Astro.url.href;
+const ogImageAlt = 'Logo Michala Dekýša';
+
+// Navigačné položky pre domovskú stránku
+const navItems = [
+  { key: 'zrucnosti', label: 'Zručnosti', href: '/zrucnosti' },
+  { key: 'porfolio', label: 'Portfolio', href: '/portfolio' },
+  { key: 'o-mne', label: 'O mne', href: '/o-mne' }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Baselayout pageTitle={pageTitle} description={description} ogLocale={ogLocale} ogTitle={ogTitle} ogImage={ogImage} ogUrl={ogUrl} ogDescription={description} ogImageAlt={ogImageAlt} navItems={navItems}>
+    <div class="space-y-8">
+      <p style="color: var(--color-text)" class="text-xl"><span class="underline">Frontend</span> Developer <span 
+      style="color: var(--color-primary)">&</span>&nbsp;<span class="underline">UI</span>&nbsp;Desingner</p>
+
+      <div style="color: var(--color-text-secondary)" class="text-xl">
+        <Image src={quote} alt="Quote" class="h-5 w-5" loading="eager" />
+        <p class="indent-5">Tvorím rýchle a krásne webstránky pomocou Astro, Tailwind a ďalších moderných technológií. Dôraz na UX, dizajn, čistý kód a performance.</p>
+        <div class="flex justify-end">
+        <Image src={quote} alt="Quote" class="h-5 w-5" loading="eager" />
+        </div>
+      </div>
+    </div>
+    
+    <div style="background-color: var(--color-background-secondary)" class="p-5 rounded-2xl inset-shadow-[0_0_3px_0px_rgba(246,247,249,25)]">
+      <p class="normal-case" style="color: var(--color-text-secondary)">&lt;!-- Level up --&gt; </p>
+
+      <p class="normal-case"><span style="color: #a7e6fd">&lt;</span><span style="color: #fc8f94">script</span><span style="color: #f1b1fd"> type</span><span style="color: #a7e6fd">="</span><span style="color: #fff09e">text/javascript</span><span style="color: #a7e6fd;">"&gt;</span></p>
+
+      <p class="ml-5 normal-case"><span style="color: #f1b1fd">function</span><span style="color: #a7e6fd"> getInspiration</span><span style="color: #f3d009">() &#123;</span></p>
+
+      <p class="ml-10 normal-case"><span style="color: #a7e6fd">if</span><span style="color: #f1b1fd"> (</span><span style="color: #f8f8f8">morningDay</span><span style="color: #f1b1fd"> ===</span><span style="color: #a7e6fd"> '</span><span style="color: #fff09e">depressed</span><span style="color: #a7e6fd">'</span><span style="color: #f1b1fd">) &#123;</span></p>
+
+      <p class="ml-16 normal-case"><span style="color: #a7e6fd">startCoding()</span><span style="color: #f1b1fd"> &&</span><span style="color: #a7e6fd"> getAwsome()</span></p>
+
+      <p class="ml-10"><span style="color: #f1b1fd">&#x7D;</span></p>
+
+      <p class="ml-5"><span style="color: #f3d009">&#x7D;</span></p>
+
+      <p class="normal-case"><span style="color: #a7e6fd">&lt;/</span><span style="color: #fc8f94">script</span><span style="color: #a7e6fd;">&gt;</span></p>
+    </div>
+    
+		<Navigation items={navItems} />
+</Baselayout>

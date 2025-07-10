@@ -1,0 +1,57 @@
+---
+import Header from '../components/Header.astro';
+import { getLangFromUrl } from '../i18n/utils';
+import type { NavItem } from '../components/Navigation.astro';
+
+const lang = getLangFromUrl(Astro.url);
+
+import '../styles/global.css';
+
+interface Props {
+  pageTitle: string;
+	description: string;
+	ogLocale: string;
+	ogTitle: string;
+	ogImage: string;
+	ogUrl: string;
+	ogDescription: string;
+	ogImageAlt: string;
+	headerTitle?: string;
+	navItems?: NavItem[];
+}
+
+const { pageTitle, description, ogLocale, ogTitle, ogImage, ogUrl, ogDescription, ogImageAlt, headerTitle, navItems } = Astro.props;
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="og:locale" content={ogLocale} />
+		<meta name="og:title" content={ogTitle} />
+		<meta name="og:type" content="website" />
+		<meta name="og:image" content={ogImage} />
+		<meta name="og:url" content={ogUrl} />
+		<meta name="og:description" content={ogDescription} />
+		<meta name="og:image:alt" content={ogImageAlt} />
+		<meta name="og:image:width" content="1200" />
+		<meta name="og:image:height" content="630" />
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+		<link rel="manifest" href="/manifest.json">
+		<title>{pageTitle}</title>
+	</head>
+	<body class="min-h-screen flex flex-col p-6">
+		<Header pageTitle={headerTitle} navItems={navItems} />
+		<main class="flex-1 flex flex-col justify-between">
+		  <slot />
+		</main>
+	</body>
+</html>

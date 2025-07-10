@@ -1,0 +1,26 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { defaultLang, showDefaultLang } from "../i18n/ui";
+import { Image } from "astro:assets";
+import headingOne from "../images/heading-1.svg";
+import LanguagePicker from "./LanguagePicker.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+let homeHref = "/";
+if (currentLang !== defaultLang || showDefaultLang) {
+  homeHref = `/${currentLang}`;
+}
+
+const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
+const t = useTranslations(lang);
+
+const headingText = t("home.heading");
+---
+
+<header>
+  <div class="flex justify-between">
+    <Image src={headingOne} alt="heading-1" loading="eager" class="w-8 h-8" />
+    <LanguagePicker />
+  </div>
+  <h1 class="font-bold text-5xl">{headingText}</h1>
+</header>

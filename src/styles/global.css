@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #141516;
+  --color-background-secondary: #202124;
+  --color-text: #F6F7F9;
+  --color-text-secondary: #A3A3A3;
+  --color-border: #232728;
+  --color-primary: #94FA0F;
+  --color-akcent-modra: #2FC8FA;
+  --color-akcent-zlta: #FFD166;
+  --color-error: #FF5B5B;
+  --font-courier: "Courier Prime", "Courier", monospace;
+}
+
+.font-courier {
+  font-family: var(--font-courier);
+}
+
+body {
+  background-color: var(--color-background);
+  font-family: var(--font-courier);
+  @apply static p-2.5 uppercase h-screen;
+}
+
+header {
+  color: var(--color-text);
+}
