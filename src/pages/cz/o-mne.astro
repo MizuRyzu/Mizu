@@ -1,9 +1,9 @@
 ---
-import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Baselayout from "../../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { Image } from "astro:assets";
-import quote from "../images/quote.svg";
-import fotka from "../images/fotka.png";
+import quote from "../../images/quote.svg";
+import fotka from "../../images/fotka.png";
 
 const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
 const t = useTranslations(lang);
@@ -18,9 +18,9 @@ const ogImageAlt = "Logo Michala Dekýša";
 const headerTitle = t("page.o-mne");
 
 const navItems = [
-  { key: "index", label: t("nav.home"), href: "/index" },
-  { key: "zrucnosti", label: t("nav.skills"), href: "/zrucnosti" },
-  { key: "skusenosti", label: t("nav.experience"), href: "/skusenosti" },
+  { key: "index", label: t("nav.home"), href: "/cz/index" },
+  { key: "zrucnosti", label: t("nav.skills"), href: "/cz/zrucnosti" },
+  { key: "skusenosti", label: t("nav.experience"), href: "/cz/skusenosti" },
 ];
 ---
 

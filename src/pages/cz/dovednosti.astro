@@ -1,6 +1,6 @@
 ---
-import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Baselayout from "../../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
 const t = useTranslations(lang);
@@ -15,9 +15,9 @@ const ogImageAlt = "Logo Michala Dekýša";
 const headerTitle = t("page.zrucnosti");
 
 const navItems = [
-  { key: "porfolio", label: t("nav.portfolio"), href: "/portfolio" },
-  { key: "skusenosti", label: t("nav.experience"), href: "/skusenosti" },
-  { key: "o-mne", label: t("nav.about"), href: "/o-mne" },
+  { key: "porfolio", label: t("nav.portfolio"), href: "/cz/portfolio" },
+  { key: "skusenosti", label: t("nav.experience"), href: "/cz/skusenosti" },
+  { key: "o-mne", label: t("nav.about"), href: "/cz/o-mne" },
 ];
 
 ---
@@ -35,7 +35,7 @@ const navItems = [
   navItems={navItems}
 >
   
-  <div class="flex-1 flex flex-col mt-8 lg:w-xl">
+  <div class="flex-1 flex flex-col mt-8">
 
     <div class="skill">
       <p class="text-text">HTML</p>
@@ -60,6 +60,13 @@ const navItems = [
 
     <div class="skill">
       <p class="text-text">JavaScript</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 40%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Database</p>
       <div class="skill-bar bg-background-secondary">
         <div class="skill-level auto-animate" style="width: 40%; background-color: var(--color-primary);"></div>
       </div>

@@ -15,7 +15,7 @@ const currentRouteKey = getRouteFromUrl(Astro.url) ?? null;
     <Image src={chevronDown} alt="chevron down" class="w-4 h-4 transition-transform duration-200" loading="eager" />
   </button>
 
-  <div style="background-color: var(--color-background);" class="language-picker-dropdown absolute top-full left-0 mt-1 border border-border rounded-md opacity-0 invisible pointer-events-none transform scale-95 transition-all duration-200 z-50">
+  <div class="language-picker-dropdown absolute top-full left-0 mt-1 border border-border rounded-md opacity-0 invisible pointer-events-none transform scale-95 transition-all duration-200 z-50 bg-background">
     {
       Object.entries(languages).map(
         ([lang, label]) => 

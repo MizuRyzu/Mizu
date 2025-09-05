@@ -1,0 +1,31 @@
+---
+export interface Props {
+  title: string;
+  label: string;
+  description: string;
+  imageUrl?: string;
+  projectUrl?: string;
+}
+
+const { title, label, description, imageUrl, projectUrl } = Astro.props;
+---
+
+<div class="portfolioKarta">
+  <h2>{title}</h2>
+
+  <div class="flex flex-col space-y-2.5 md:grid md:grid-cols-2 md:space-y-0 md:gap-10">
+    <div class="flex justify-center lg:h-[500px]">
+    { imageUrl && (
+        <img src={imageUrl} alt={label} class="object-cover rounded-lg sm:w-[500px] md:w-full" loading="eager"/>
+      )}
+    </div>
+    <p class="text-text-secondary text-sm lg:text-xl">{description}</p>
+  </div>
+
+  <div class="flex justify-between items-end">
+    <div class="button">
+      <a href={projectUrl} target="_blank">Zobraziť project</a>
+    </div>
+  </div>
+</div>
+

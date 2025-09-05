@@ -1,10 +1,10 @@
 ---
-import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import ExpCard from "../components/ExpCard.astro";
-import code from "../images/code-xml.svg";
-import laugh from "../images/laugh.svg";
-import tv from "../images/tv-minimal-play.svg";
+import Baselayout from "../../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import ExpCard from "../../components/ExpCard.astro";
+import code from "../../images/code-xml.svg";
+import laugh from "../../images/laugh.svg";
+import tv from "../../images/tv-minimal-play.svg";
 
 const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
 const t = useTranslations(lang);
@@ -19,9 +19,9 @@ const ogImageAlt = "Logo Michala Dekýša";
 const headerTitle = t("page.skusenosti");
 
 const navItems = [
-  { key: "o-mne", label: t("nav.about"), href: "/o-mne" },
-  { key: "portfolio", label: t("nav.portfolio"), href: "/portfolio" },
-  { key: "index", label: t("nav.home"), href: "/index" },
+  { key: "o-mne", label: t("nav.about"), href: "/en/o-mne" },
+  { key: "portfolio", label: t("nav.portfolio"), href: "/en/portfolio" },
+  { key: "index", label: t("nav.home"), href: "/en/index" },
 ];
 ---
 

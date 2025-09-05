@@ -16,8 +16,8 @@ const currentLang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 ---
 
-<nav style="color: var(--color-akcent-modra)">
-  <ul class="flex flex-row justify-between">
+<nav class="text-akcent-modra sm:flex sm:justify-end">
+  <ul class="flex flex-row justify-between sm:space-x-5">
     {
       items.map((item) => {
         const isActive =
@@ -27,10 +27,10 @@ const currentPath = Astro.url.pathname;
             (currentPath === "/" || currentPath === `/${currentLang}`));
 
         return (
-          <li class="border-2 rounded-lg py-1 px-2">
+          <li class="rounded-lg py-1 px-2 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
             <a
               href={getTranslatedPath(item.key, currentLang)}
-              class={`nav-link text-text hover:text-primary transition-colors duration-200 ${
+              class={`nav-link transition-colors duration-200 cursor-pointer ${
                 isActive
                   ? "text-primary font-medium border-b-2 border-primary"
                   : ""

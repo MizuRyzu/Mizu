@@ -1,6 +1,6 @@
 ---
-import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Baselayout from "../../layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
 const t = useTranslations(lang);
@@ -15,7 +15,7 @@ const ogImageAlt = "Logo Michala Dekýša";
 const headerTitle = t("page.kontakt");
 
 const navItems = [
-  { key: "index", label: t("nav.home"), href: "/index" },
+  { key: "index", label: t("nav.home"), href: "/en/index" },
 ];
 ---
 
