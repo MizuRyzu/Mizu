@@ -1,47 +1,98 @@
 ---
-import { getLangFromUrl, getTranslatedPath } from "../i18n/utils";
-
-export interface NavItem {
-  key: string;
-  label: string;
-  href: string;
-}
-
-export interface Props {
-  items: NavItem[];
-}
-
-const { items } = Astro.props;
-const currentLang = getLangFromUrl(Astro.url);
-const currentPath = Astro.url.pathname;
 ---
 
-<nav class="text-akcent-modra sm:flex sm:justify-end">
-  <ul class="flex flex-row justify-between sm:space-x-5">
-    {
-      items.map((item) => {
-        const isActive =
-          currentPath === item.href ||
-          currentPath === `/${currentLang}${item.href}` ||
-          (item.href === "/" &&
-            (currentPath === "/" || currentPath === `/${currentLang}`));
+<nav class="text-akcent-modra">
+  <div class="lg:hidden flex items-center justify-between">
+    <button id="hamburgerBtn" class="p-2 focus:outline-none uppercase">
+      Menu
+    </button>
+  </div>
+  
+  <div id="mobileNavOverlay" class="fixed inset-0 w-full h-full bg-background-secondary/95 z-50 flex flex-col items-center justify-center space-y-6 transition-opacity duration-300 opacity-0 pointer-events-none lg:hidden">
+    <button id="closeNavBtn" class="absolute top-3 right-3 p-2 uppercase">
+      Zavrieť
+    </button>
 
-        return (
-          <li class="rounded-lg py-1 px-2 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
-            <a
-              href={getTranslatedPath(item.key, currentLang)}
-              class={`nav-link transition-colors duration-200 cursor-pointer ${
-                isActive
-                  ? "text-primary font-medium border-b-2 border-primary"
-                  : ""
-              }`}
-            >
-              {item.label}
-            </a>
-          </li>
-        );
-      })
-    }
+    <ul class="flex flex-col items-center space-y-6 text-xl">
+
+      <li>
+        <a href="/portfolio" class="rounded-lg py-2 px-6 text-akcent-modra hover:text-background hover:bg-akcent-modra">
+          Portfolio
+        </a>
+      </li>
+
+      <li>
+        <a href="/skusenosti" class="rounded-lg py-2 px-6 text-akcent-modra hover:text-background hover:bg-akcent-modra">
+          Skúsenosti
+        </a>
+      </li>
+
+      <li>
+        <a href="/o-mne" class="rounded-lg py-2 px-6 text-akcent-modra hover:text-background hover:bg-akcent-modra">
+          O mne
+        </a>
+      </li>
+
+      <li>
+        <a href="/kontakt" class="rounded-lg py-2 px-6 text-akcent-modra hover:text-background hover:bg-akcent-modra">
+          Kontakt
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="hidden lg:flex flex-row justify-between lg:space-x-2">
+
+    <li class="transition-colors duration-200 cursor-pointer">
+      <a href="/portfolio" class="rounded-lg py-2 px-4 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
+        Portfolio
+      </a>
+    </li>
+
+    <li class="transition-colors duration-200 cursor-pointer">
+      <a href="/skusenosti" class="rounded-lg py-2 px-4 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
+        Skúsenosti
+      </a>
+    </li>
+
+    <li class="transition-colors duration-200 cursor-pointer">
+      <a href="/o-mne" class="rounded-lg py-2 px-4 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
+        O mne
+      </a>
+    </li>
+
+    <li class="transition-colors duration-200 cursor-pointer">
+      <a href="/kontakt" class="rounded-lg py-2 px-4 text-akcent-modra hover:text-background hover:bg-akcent-modra cursor-pointer">
+        Kontakt
+      </a>
+    </li>
   </ul>
-</nav>
+  <script>
+    const btn = document.getElementById("hamburgerBtn");
+    const overlay = document.getElementById("mobileNavOverlay");
+    const closeBtn = document.getElementById("closeNavBtn");
 
+    // Otvorenie overlay menu
+    btn?.addEventListener("click", () => {
+      overlay?.classList.remove("opacity-0", "pointer-events-none");
+      overlay?.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    });
+
+    // Zatvorenie overlay menu
+    closeBtn?.addEventListener("click", () => {
+      overlay?.classList.add("opacity-0", "pointer-events-none");
+      overlay?.classList.remove("opacity-100");
+      document.body.style.overflow = "";
+    });
+
+    // Zatvorenie po kliknutí na odkaz
+    overlay?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        overlay?.classList.add("opacity-0", "pointer-events-none");
+        overlay?.classList.remove("opacity-100");
+        document.body.style.overflow = "";
+      });
+    });
+  </script>
+</nav>

@@ -1,27 +1,18 @@
 ---
 import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { Image } from "astro:assets";
 import quote from "../images/quote.svg";
 import fotka from "../images/fotka.png";
 
-const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
-const t = useTranslations(lang);
-
 const pageTitle = "O mne - Michal Dekýš";
-const description = t("description.skusenosti");
+const description = "O mne stránka Michala Dekýša, Frontend Developera & UI Designera.";
 const ogLocale = "sk_SK";
 const ogTitle = "Michal Dekýš - O mne";
 const ogImage = "";
 const ogUrl = Astro.url.href;
 const ogImageAlt = "Logo Michala Dekýša";
-const headerTitle = t("page.o-mne");
+const headerTitle = "O mne";
 
-const navItems = [
-  { key: "index", label: t("nav.home"), href: "/index" },
-  { key: "zrucnosti", label: t("nav.skills"), href: "/zrucnosti" },
-  { key: "skusenosti", label: t("nav.experience"), href: "/skusenosti" },
-];
 ---
 
 <Baselayout
@@ -34,31 +25,94 @@ const navItems = [
   ogDescription={description}
   ogImageAlt={ogImageAlt}
   headerTitle={headerTitle}
-  navItems={navItems}
 >
-<div class="flex-1 flex flex-col lg:flex-row lg:justify-between">
-  <div class="mt-8 text-text-secondary lg:w-1/2">
+<div class="flex flex-col space-y-10 lg:flex-row lg:justify-between lg:space-x-20">
+  <div class="text-text-secondary lg:w-1/2">
     <Image src={quote} alt="Quote" class="h-5 w-5" loading="eager" />
 
     <div class="space-y-5">
-      <p class="indent-5 text-sm lg:text-xl">{t("omne.text1")}</p>
-      <p class="indent-5 text-sm lg:text-xl">{t("omne.text2")}</p>
-      <p class="indent-5 text-sm lg:text-xl">{t("omne.text3")}</p>
+      <p class="indent-5 text-sm lg:text-xl">Som frontend developer, ktorého baví spájať dizajn s moderným kódom. Webstránky najskôr navrhujem vo Figme, kde sa snažím o jednoduchosť, funkčnosť a dobrý používateľský zážitok. Potom ich oživujem pomocou Astro, Tailwindu a JavaScriptu tak, aby boli rýchle, dostupné a vizuálne zaujímavé.</p>
+      <p class="indent-5 text-sm lg:text-xl">Verím, že web má slúžiť ľuďom – preto sa vždy snažím pochopiť potreby klienta a výsledok prispôsobiť jeho cieľom. Rád sa učím nové technológie a neustále hľadám spôsoby, ako robiť veci lepšie.</p>
+      <p class="indent-5 text-sm lg:text-xl">Vo voľnom čase rád objavujem nové nástroje, hrávam hry a vylepšujem svoje projekty.</p>
     </div>
 
     <div class="flex justify-end">
       <Image src={quote} alt="Quote" class="h-5 w-5" loading="eager" />
     </div>
+
+    <div class="flex-1 flex flex-col items-center justify-center mt-14">
+      <div class="border-foto">
+        <img src={fotka.src} alt="Fotka Michala Dekýša" loading="eager" width="180" height="180" />
+      </div>
+      <a href="/kontakt" class="button uppercase mt-10">Kontaktovať</a>
+    </div>
   </div>
 
-  <div class="flex-1 flex flex-col items-center justify-center lg:w-1/2 lg:items-end lg:justify-end lg:mb-10">
-    <div class="flex flex-col items-center lg:w-[350px]">
-      <div class="border-foto">
-        <img src={fotka.src} alt={t("omne.alt")} loading="eager" width="180" height="180" />
-      </div>
+  <div class="flex flex-col my-8 lg:w-1/2 lg:my-0">
 
-      <a href="/kontakt" class="button uppercase mt-10">{t("kontaktovat")}</a>
+    <div class="skill">
+      <p class="text-text">HTML</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 95%; background-color: var(--color-primary);"></div>
+      </div>
     </div>
+
+    <div class="skill">
+      <p class="text-text">CSS</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 95%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Tailwindcss</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 80%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">JavaScript</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 40%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Git</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 30%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Astro</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 30%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Node JS</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 20%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">Figma</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 80%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p class="text-text">VS Code</p>
+      <div class="skill-bar bg-background-secondary">
+        <div class="skill-level auto-animate" style="width: 80%; background-color: var(--color-primary);"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 </Baselayout>

@@ -1,5 +1,4 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 export interface Props {
   svgUrl: string;
@@ -11,9 +10,6 @@ export interface Props {
 }
 
 const { svgUrl, svgLabel, datum, title, firma, description, } = Astro.props;
-
-const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
-const t = useTranslations(lang);
 ---
 <div class="flex justify-center">
   <div class="expKarta">
@@ -24,7 +20,7 @@ const t = useTranslations(lang);
         <p class="text-sm text-text-secondary">{datum}</p>
       </div>
 
-      <h2>{title}</h2>
+      <h2 class="mt-3">{title}</h2>
       <h3>{firma}</h3>
     </div>
     <p class="text-sm text-text-secondary lg:text-xl">{description}</p>

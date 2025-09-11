@@ -4,10 +4,10 @@ export interface Props {
   label: string;
   description: string;
   imageUrl?: string;
-  projectUrl?: string;
+  projectTarget?: string;
 }
 
-const { title, label, description, imageUrl, projectUrl } = Astro.props;
+const { title, label, description, imageUrl, projectTarget } = Astro.props;
 ---
 
 <div class="portfolioKarta">
@@ -22,9 +22,9 @@ const { title, label, description, imageUrl, projectUrl } = Astro.props;
     <p class="text-text-secondary text-sm lg:text-xl">{description}</p>
   </div>
 
-  <div class="flex justify-between items-end">
+  <div class="flex justify-start">
     <div class="button">
-      <a href={projectUrl} target="_blank">Zobraziť project</a>
+      <a href={projectTarget}>Zobraziť project</a>
     </div>
   </div>
 </div>

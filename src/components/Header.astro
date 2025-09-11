@@ -1,40 +1,19 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { defaultLang, showDefaultLang } from "../i18n/ui";
-import { Image } from "astro:assets";
-import headingOne from "../images/heading-1.svg";
-import LanguagePicker from "./LanguagePicker.astro";
-import { type NavItem } from "./Navigation.astro";
+import Navigation from './Navigation.astro';
 
 export interface Props {
   pageTitle?: string;
-  navItems?: NavItem[];
 }
 
 const { pageTitle } = Astro.props;
 
-const currentLang = getLangFromUrl(Astro.url);
-let homeHref = "/";
-if (currentLang !== defaultLang || showDefaultLang) {
-  homeHref = `/${currentLang}`;
-}
-
-const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
-const t = useTranslations(lang);
-
-// Automatická detekcia stránky z URL
-const currentPath = Astro.url.pathname;
-const pathParts = currentPath.split('/').filter(Boolean);
-const currentPage = pathParts[pathParts.length - 1] || 'index';
-
-// Fallback na poskytnutý pageTitle alebo automatická detekcia  
 const headingText = pageTitle;
 ---
 
-<header>
-  <div class="flex justify-between">
-    <Image src={headingOne} alt="heading-1" loading="eager" class="w-8 h-8" />
-    <LanguagePicker />
+<header class="p-2.5 lg:px-10">
+  <div class="flex justify-between items-center mb-5">
+    <p class="text-text font-courgette text-4xl normal-case"><a href="/">Mižu</a></p>
+    <Navigation />
   </div>
-  <h1 class="font-bold text-5xl lg:text-7xl">{headingText}</h1>
+  <h1>{headingText}</h1>
 </header>

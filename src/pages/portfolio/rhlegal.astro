@@ -1,0 +1,33 @@
+---
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+---
+
+<PortfolioLayout
+  title="RH Legal"
+  description={{
+    one: "RHLegal.sk je webová stránka, ktorá poskytuje komplexné právne služby a informácie pre svojich klientov.",
+    two: "Cieľom stránky je poskytnúť prehľadný a užívateľsky prívetivý nástroj na získanie právnych informácií a služieb.",
+    three: "Výsledkom je moderná, responzívna webová stránka s čistým dizajnom, ktorá výrazne zlepšila komunikáciu s klientmi a zvýšila efektivitu práce kancelárie.",
+  }}
+  tech={{
+    one: "HTML5 & CSS3 (Tailwind CSS)",
+    two: "Astro",
+    three: "SEO optimalizácia",
+    four: "Responzívny dizajn",
+    five: "Jednoduchý dizajn",
+  }}
+>
+  <div slot="desktopImages" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+    <img src="/rhlegal-home.webp" alt="RHlegal Home" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-jazyky.webp" alt="RHlegal Jazyky" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-kalkulacka.webp" alt="RHlegal Kalkulačka" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-kontakt.webp" alt="RHlegal Kontakt" class="w-full h-auto rounded-lg shadow-lg" />
+  </div>
+
+  <div slot="mobileImages" class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-4">
+    <img src="/rhlegal-m-home.webp" alt="RHlegal Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-m-jazyky.webp" alt="RHlegal Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-m-kalkulacka.webp" alt="RHlegal Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/rhlegal-m-kontakt.webp" alt="RHlegal Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+  </div>
+</PortfolioLayout>

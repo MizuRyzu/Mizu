@@ -1,0 +1,35 @@
+---
+import PortfolioLayout from "../../layouts/PortfolioLayout.astro";
+---
+
+<PortfolioLayout
+  title="Zubná ambulancia"
+  description={{
+    one: "Webstránka pre zubnú ordináciu Ladenta, ktorá ponúka moderné a funkčné riešenia pre pacientov. Stránka je navrhnutá s dôrazom na jednoduchosť použitia a estetiku, čo zaručuje príjemný zážitok pre návštevníkov.",
+    two: "Hlavné funkcie webu zahŕňajú prehľadné informácie o službách, cenníku, kontaktné údaje a možnosť online objednávky. Dizajn je responzívny, čo znamená, že stránka vyzerá skvele na všetkých zariadeniach, od desktopov po mobilné telefóny.",
+    three: "Cieľom projektu bolo vytvoriť profesionálnu online prezentáciu pre zubnú ambulanciu, ktorá by prilákala nových pacientov a poskytla im všetky potrebné informácie na jednom mieste.",
+  }}
+  tech={{
+    one: "HTML5",
+    two: "CSS3 (Tailwind CSS)",
+    three: "SEO optimalizácia",
+    four: "Responzívny dizajn",
+    five: "Jednoduchý dizajn",
+  }}
+>
+  <div slot="desktopImages" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+    <img src="/ladenta-home.webp" alt="Ladenta Home" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-sluzby.webp" alt="Ladenta Služby" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-cennik.webp" alt="Ladenta Cenník" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-kontakt.webp" alt="Ladenta Kontakt" class="w-full h-auto rounded-lg shadow-lg" />
+  </div>
+
+  <div slot="mobileImages" class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-4">
+    <img src="/ladenta-m-home.webp" alt="Ladenta Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-m-sluzby.webp" alt="Ladenta Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-m-cennik.webp" alt="Ladenta Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/ladenta-m-kontakt.webp" alt="Ladenta Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+  </div>
+    
+</PortfolioLayout>
+

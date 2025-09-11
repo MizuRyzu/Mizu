@@ -1,26 +1,17 @@
 ---
 import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import PortfolioCard from "../components/PortfolioCard.astro";
 import chevrons from "../images/chevrons-up.svg";
 
-const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
-const t = useTranslations(lang);
-
 const pageTitle = "Projekty - Michal Dekýš";
-const description = t("description.portfolio");
+const description = "Portfólio Michala Dekýša, obsahujúce jeho projekty.";
 const ogLocale = "sk_SK";
 const ogTitle = "Michal Dekýš - Projekty";
 const ogImage = "";
 const ogUrl = Astro.url.href;
 const ogImageAlt = "Logo Michala Dekýša";
-const headerTitle = t("page.portfolio");
+const headerTitle = "Portfolio";
 
-const navItems = [
-  { key: "skusenosti", label: t("nav.experience"), href: "/skusenosti" },
-  { key: "zrucnosti", label: t("nav.skills"), href: "/zrucnosti" },
-  { key: "o-mne", label: t("nav.about"), href: "/o-mne" },
-];
 ---
 
 <Baselayout
@@ -33,7 +24,6 @@ const navItems = [
   ogDescription={description}
   ogImageAlt={ogImageAlt}
   headerTitle={headerTitle}
-  navItems={navItems}
 >
   <div class="vertical-scroll-container">
     <div class="vertical-scroll-slide">
@@ -41,8 +31,8 @@ const navItems = [
         title="Zubná ambulancia"
         label="Web Ladenta"
         imageUrl="/ladenta-home.webp"
-        description={t("description.ladenta")}
-        projectUrl="https://ladenta.sk/"
+        description="Webstránka pre zubnú ordináciu Ladenta, ktorá ponúka moderné a funkčné riešenia pre pacientov."
+        projectTarget="/portfolio/ladetna"
       />
     </div>
 
@@ -51,8 +41,8 @@ const navItems = [
         title="Krátenie poistného plnenia"
         label="Web poistné udalosti"
         imageUrl="/kratenie-home.webp"
-        description={t("description.kratenie")}
-        projectUrl="https://krateniepoistnehoplnenia.sk/"
+        description="Webová stránka pre projekt Krátenie poistného plnenia, ktorá sa zaoberá optimalizáciou procesov v oblasti poistných udalostí."
+        projectTarget="/portfolio/kratenie"
       />
     </div>
 
@@ -61,8 +51,8 @@ const navItems = [
         title="Advokátska kancelária"
         label="Web advokátska kancelária"
         imageUrl="/rhlegal-home.webp"
-        description={t("description.rhlegal")}
-        projectUrl="https://rhlegal.sk/"
+        description="Webstránka pre advokátsku kanceláriu RH Legal, ktorá poskytuje právne služby a poradenstvo."
+        projectTarget="/portfolio/rhlegal"
       />
     </div>
   </div>

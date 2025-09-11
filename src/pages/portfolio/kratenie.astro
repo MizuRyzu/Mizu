@@ -1,0 +1,34 @@
+---
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import Portfolio from '../portfolio.astro';
+---
+
+<PortfolioLayout
+  title="Krátenie poistného plnenia"
+  description={{
+    one: "Webová stránka pre projekt Krátenie poistného plnenia, ktorá sa zaoberá optimalizáciou procesov v oblasti poistných udalostí. Stránka je navrhnutá tak, aby poskytovala jasné a zrozumiteľné informácie o službách a výhodách projektu.",
+    two: "Hlavné funkcie webu zahŕňajú podrobné informácie o procese krátenia poistného plnenia, často kladené otázky, kontaktné údaje a možnosť konzultácie. Dizajn je moderný a responzívny, čo zabezpečuje optimálny zážitok na všetkých zariadeniach.",
+    three: "Cieľom projektu bolo vytvoriť efektívnu online platformu, ktorá by pomohla klientom lepšie pochopiť proces krátenia poistného plnenia a poskytla im potrebnú podporu pri riešení ich poistných udalostí.",
+  }}
+  tech={{
+    one: "HTML5",
+    two: "CSS3 (Tailwind CSS)",
+    three: "SEO optimalizácia",
+    four: "Responzívny dizajn",
+    five: "Jednoduchý dizajn",
+  }}
+>
+  <div slot="desktopImages" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+    <img src="/kratenie-home.webp" alt="Krátenie Home" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-kalkulacka.webp" alt="Krátenie Kalkulačka" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-postup.webp" alt="Krátenie Postup" class="w-full h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-kontakt.webp" alt="Krátenie Kontakt" class="w-full h-auto rounded-lg shadow-lg" />
+  </div>
+
+  <div slot="mobileImages" class="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-4">
+    <img src="/kratenie-m-home.webp" alt="Krátenie Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-m-kalkulacka.webp" alt="Krátenie Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-m-postup.webp" alt="Krátenie Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+    <img src="/kratenie-m-kontakt.webp" alt="Krátenie Mobil" class="w-[270px] h-auto rounded-lg shadow-lg" />
+  </div>
+</PortfolioLayout>

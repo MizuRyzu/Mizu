@@ -11,14 +11,19 @@
   --color-akcent-zlta: #FFD166;
   --color-error: #FF5B5B;
   --font-courier: "Courier Prime", monospace;
+  --font-courgette: "Courgette", cursive;
 }
 
 body {
-  @apply flex flex-col p-2.5 lg:py-5 lg:px-10 uppercase min-h-screen bg-background font-courier;
+  @apply flex flex-col uppercase min-h-screen bg-background font-courier;
 }
 
 header {
-  @apply text-text
+  @apply text-text;
+}
+
+h1 {
+  @apply font-bold text-5xl text-text lg:text-7xl;
 }
 
 h2 {
@@ -83,7 +88,7 @@ textarea {
 }
 
 .vertical-scroll-container {
-  @apply h-[520px] sm:h-[600px] lg:h-[650px] overflow-y-auto mt-8 space-y-8;
+  @apply h-[520px] sm:h-[600px] lg:h-[650px] overflow-y-auto space-y-8;
   scroll-snap-type: y mandatory;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
@@ -103,7 +108,7 @@ textarea {
 /* Skúsenosti */
 
 .expKarta {
-  @apply h-[300px] rounded-2xl p-2.5 inset-shadow-[0_0_3px_0px_rgba(246,247,249,25)] bg-background-secondary lg:w-7xl;
+  @apply h-[310px] rounded-2xl p-2.5 inset-shadow-[0_0_3px_0px_rgba(246,247,249,25)] bg-background-secondary;
 }
 
 /* Skúsenosti koniec */

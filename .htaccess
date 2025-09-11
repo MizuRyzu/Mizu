@@ -1,0 +1,5 @@
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+Header set Content-Security-Policy "frame-ancestors 'self'"

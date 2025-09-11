@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: {
+    one: string;
+    two: string;
+    three: string;
+  };
+  tech: {
+    one: string;
+    two: string;
+    three: string;
+    four: string;
+    five: string;
+  };
+}
+
+const { title, description, tech } = Astro.props;
+---
+
+<BaseLayout
+  pageTitle="Náhľad projektu"
+  description="Detailný popis projektu, vrátane použitých technológií a ukážok."
+  ogLocale="sk_SK"
+  ogTitle="Náhľad projektu"
+  ogImage=""
+  ogUrl={Astro.url.href}
+  ogDescription="Detailný popis projektu, vrátane použitých technológií a ukážok."
+  ogImageAlt="Logo"
+  headerTitle=""
+>
+  <div class="flex flex-col space-y-10 lg:flex-row lg:space-x-10">
+    <div class="flex flex-col space-y-6 lg:w-1/2">
+      <div class="flex flex-col space-y-4 text-text-secondary lg:text-xl">
+        <h2>{title}</h2>
+
+        <p>{description.one}</p>
+
+        <p>{description.two}</p>
+
+        <p>{description.three}</p>
+      </div>
+
+      <div class="flex flex-col space-y-4 text-text-secondary">
+        <p class="text-text font-bold text-2xl mb-2">Technológie</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1 lg:text-xl">
+          <li>{tech.one}</li>
+          <li>{tech.two}</li>
+          <li>{tech.three}</li>
+          <li>{tech.four}</li>
+          <li>{tech.five}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-5 lg:mb-0 lg:w-1/2">
+      <p class="text-text font-bold text-2xl mb-2">Desktop</p>
+        <slot name="desktopImages" />
+
+      <p class="text-text font-bold text-2xl my-2">Mobil</p>
+        <slot name="mobileImages" />
+    </div>
+  </div>
+</BaseLayout>

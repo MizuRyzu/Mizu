@@ -1,22 +1,15 @@
 ---
 import Baselayout from "../layouts/BaseLayout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url) as "sk" | "cz" | "en" | "la";
-const t = useTranslations(lang);
 
 const pageTitle = "Kontakt - Michal Dekýš";
-const description = t("description.skusenosti");
+const description = "Kontakt na Michala Dekýša, Frontend Developera & UI Designera.";
 const ogLocale = "sk_SK";
 const ogTitle = "Michal Dekýš - Kontakt";
 const ogImage = "";
 const ogUrl = Astro.url.href;
 const ogImageAlt = "Logo Michala Dekýša";
-const headerTitle = t("page.kontakt");
+const headerTitle = "Kontakt";
 
-const navItems = [
-  { key: "index", label: t("nav.home"), href: "/index" },
-];
 ---
 
 <Baselayout
@@ -29,26 +22,25 @@ const navItems = [
   ogDescription={description}
   ogImageAlt={ogImageAlt}
   headerTitle={headerTitle}
-  navItems={navItems}
 >
 <div class="flex-1 flex flex-col justify-center items-center">
   <form action="">
     <div class="flex flex-col space-y-1 mb-4">
-      <label for="name">{t("kontakt.meno")}</label>
-      <input type="text" id="name" class="input" placeholder={t("kontakt.meno_placeholder")} />
+      <label for="name">Meno a priezvisko</label>
+      <input type="text" id="name" class="input" placeholder="Napíšte svoje meno" />
     </div>
 
     <div class="flex flex-col space-y-1 mb-4">
-      <label for="email">{t("kontakt.email")}</label>
-      <input type="email" id="email" class="input" placeholder={t("kontakt.email_placeholder")} />
+      <label for="email">E-mail</label>
+      <input type="email" id="email" class="input" placeholder="Napíšte svoj e-mail" />
     </div>
 
     <div class="flex flex-col space-y-1 mb-4">
-      <label for="message">{t("kontakt.sprava")}</label>
-      <textarea id="message" class="input h-32" placeholder={t("kontakt.sprava_placeholder")}></textarea>
+      <label for="message">Správa</label>
+      <textarea id="message" class="input h-32" placeholder="Napíšte svoju správu"></textarea>
     </div>
 
-    <button type="submit" class="button uppercase">{t("kontakt.poslat")}</button>
+    <button type="submit" class="button uppercase">Odoslať</button>
   </form>
 </div>
 </Baselayout>
